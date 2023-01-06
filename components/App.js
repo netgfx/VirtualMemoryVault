@@ -8,6 +8,8 @@ import _ from 'lodash'
 import { Interactive, XR, ARButton, Controllers } from '@react-three/xr'
 import { VideoSphere } from './VideoSphere'
 import { VideoBox } from './VideoBox'
+import { Perf } from 'r3f-perf'
+
 //
 //import VideoBox from './VideoBox.js' 
 
@@ -56,6 +58,7 @@ export function MainScene() {
         <Html style={{ position: "fixed", top: "24px", right: "24px", width: "100%", height: "100%" }}>
             <img src={"./close.png"} style={{ width: "48px", }} />
         </Html>
+        <Perf position="top-left" style={{ transform: 'scale(0.8)' }} />
     </XR>)
 }
 
