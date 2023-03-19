@@ -10,14 +10,16 @@ import { gsap } from "gsap"
 import { fract } from '../helpers/utils'
 import { DissolveMaterial } from './materials/DissolveMaterial'
 import { FadeMaterial } from './materials/FadeMaterial'
+import { Flex, Box } from '@react-three/flex'
+
 
 
 // The video sphere
 
 
 export const VideoSphere = (props) => {
-    const { cameraDefault } = props
-    const videoTexture = useVideoTexture('https://qsxfdqhsuyovskknxkaj.supabase.co/storage/v1/object/public/threed/090960863-360-spherical-vr-driving-throu.mp4?t=2023-01-03T16%3A37%3A34.567Z')
+    const { cameraDefault, videoSrc } = props
+    const videoTexture = useVideoTexture(videoSrc)
     const noiseTexture = useTexture('./noise.png')
     const ref = useRef()
     const orbitRef = useRef()
@@ -70,12 +72,14 @@ export const VideoSphere = (props) => {
         console.log(orbitRef.current.getDistance(), orbitRef.current.zoom)
         // orbitRef.current.zoom = 0.54
         // orbitRef.current.update()
+        //camera.position.set(0, 0, -0.1)
+        orbitRef.current.minDistance = 0.54
         gsap.to(orbitRef.current, {
             maxDistance: 0.54, // double the zoom value
             duration: 0.5, // animation duration in seconds
             ease: 'power1.out', // easing function
             onComplete: () => {
-                orbitRef.current.maxDistance = 1.6
+                orbitRef.current.maxDistance = 3.0
             }
         });
     }
@@ -101,7 +105,16 @@ export const VideoSphere = (props) => {
     useEffect(() => {
         if (showControls) {
 
-            camera.position.set(0, 0, 0.5)
+            camera.position.set(0, 0, -0.1)
+            gsap.to(orbitRef.current, {
+                minDistance: 3.0, // double the zoom value
+                duration: 0.5,
+                delay: 0.2, // animation duration in seconds
+                ease: 'power1.out', // easing function
+                onComplete: () => {
+                    orbitRef.current.maxDistance = 3.0
+                }
+            });
             console.log(ref.current)
         }
     }, [showControls])
@@ -109,9 +122,11 @@ export const VideoSphere = (props) => {
     const speed = 0.2;
     const border = 0.1;
 
-    useLayoutEffect(() => {
+    useEffect(() => {
+        if (orbitRef.current) {
 
-    })
+        }
+    }, [orbitRef])
 
 
     return (
@@ -128,7 +143,7 @@ export const VideoSphere = (props) => {
                 <fadeMaterial key={FadeMaterial.key} u_time={1.0} u_resolution={new THREE.Vector2(window.innerWidth, window.innerHeight)} uTexture={videoTexture} mask_position={0} />
                 {/* <meshBasicMaterial map={videoTexture} side={BackSide} /> */}
             </mesh>
-            {showControls && <OrbitControls ref={orbitRef} makeDefault enablePan={false} maxDistance={1.6} args={[camera, gl.domElement]} />}
+            {showControls && <OrbitControls ref={orbitRef} makeDefault enablePan={false} maxDistance={3.0} args={[camera, gl.domElement]} />}
         </>
     )
 }

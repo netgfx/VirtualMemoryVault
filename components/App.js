@@ -51,7 +51,7 @@ export function MainScene() {
 
         {!showVideo && <VideoBox onClick={setShowVideo} />}
 
-        {showVideo && <VideoSphere cameraDefault={cameraRef} />}
+        {showVideo && <VideoSphere videoSrc={"https://qsxfdqhsuyovskknxkaj.supabase.co/storage/v1/object/public/hosted-images/videos360/chef.mp4?t=2023-03-19T09%3A22%3A22.730Z"} cameraDefault={cameraRef} />}
         {/* {(showControls === true && showVideo === false) && <ArcballControls minDistance={5} setGizmosVisible={true} enablePan={false}
             autoRotate={false} autoRotateSpeed={0.15} gizmo={true} />} */}
         <Controllers />
@@ -91,7 +91,7 @@ export default function App() {
             <ARButton />
             <Canvas camera={{
                 fov: 75, aspect: getNear(), near: 0.1, far: 1100,
-                position: [0, 0, 0.1]
+                position: [0, 0, -0.1]
             }} gl={{ devicePixelRatio: getPixelRatio() }}>
                 <MainScene />
             </Canvas>
