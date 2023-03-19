@@ -6,7 +6,7 @@ import { useEffect, useState, useRef, useMemo, useCallback, useLayoutEffect } fr
 import { Curves, angle } from 'three-addons'
 import * as THREE_ADDONS from 'three-addons'
 import _ from 'lodash'
-import { Interactive, XR, ARButton, Controllers } from '@react-three/xr'
+import { Interactive, XR, ARButton, Controllers, useXR } from '@react-three/xr'
 
 export function VideoBox(props) {
     const { onClick } = props

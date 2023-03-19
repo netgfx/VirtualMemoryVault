@@ -108,6 +108,7 @@ export const VideoSphere = (props) => {
 
             camera.position.set(0, 0, -0.1)
             gsap.to(orbitRef.current, {
+
                 minDistance: 3.0, // double the zoom value
                 duration: 0.5,
                 delay: 0.2, // animation duration in seconds
@@ -116,6 +117,13 @@ export const VideoSphere = (props) => {
                     orbitRef.current.maxDistance = 3.0
                 }
             });
+            // gsap.to(ref.current.position, {
+            //     y: 0.0,
+            //     duration: 0.5,
+            //     delay: 0.2, // animation duration in seconds
+            //     ease: 'power1.out', // easing function
+
+            // });
             console.log(ref.current)
         }
     }, [showControls])
@@ -132,17 +140,17 @@ export const VideoSphere = (props) => {
 
     return (
         <>
-            <mesh ref={ref} onClick={handleClick}>
+            <mesh ref={ref} onClick={handleClick} position={[0, 0.0, 0.1]}>
                 <sphereGeometry needsUpdate={true} />
-                {/* <meshBasicMaterial map={videoTexture} /> */}
+                {/* <meshBasicMaterial map={videoTexture} />  */}
                 {/* <colorMaterial key={ColorMaterial.key}
                     uFreq={speed}
                     uBorder={border}
                     uTexture={videoTexture}
                     uNoiseTexture={noiseTexture}
                 /> */}
-                <fadeMaterial key={FadeMaterial.key} u_time={1.0} u_resolution={new THREE.Vector2(window.innerWidth, window.innerHeight)} uTexture={videoTexture} mask_position={0} onUpdate={(self) => (self.needsUpdate = true)} />
-                {/* <meshBasicMaterial map={videoTexture} side={BackSide} /> */}
+                {/* <fadeMaterial key={FadeMaterial.key} u_time={1.0} u_resolution={new THREE.Vector2(window.innerWidth, window.innerHeight)} uTexture={videoTexture} mask_position={0} onUpdate={(self) => (self.needsUpdate = true)} /> */}
+                <meshBasicMaterial map={videoTexture} side={BackSide} />
             </mesh>
             {showControls && <OrbitControls ref={orbitRef} makeDefault enablePan={false} maxDistance={3.0} args={[camera, gl.domElement]} />}
         </>
