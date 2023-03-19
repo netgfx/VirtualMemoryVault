@@ -31,6 +31,7 @@ export const VideoSphere = (props) => {
     const { gl } = useThree();
 
     useFrame((state, delta) => {
+        console.log("ref: ", ref.current)
         if (!ref.current) return
 
         var limit = 1.0 - Math.abs(2.0 * fract(5.0 * ref.current.material.uTime) - 1.0);
