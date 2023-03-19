@@ -60,7 +60,7 @@ export function MainScene() {
         {/* <Html style={{ position: "fixed", top: "24px", right: "24px", width: "100%", height: "100%" }}>
             <img src={"./close.png"} style={{ width: "48px", }} />
         </Html> */}
-        <Perf position="top-left" style={{ transform: 'scale(1.0)' }} />
+        {/* <Perf position="top-left" style={{ transform: 'scale(1.0)' }} /> */}
     </XR>)
 }
 
