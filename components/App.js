@@ -124,7 +124,7 @@ export default function App() {
     return (
 
         <>
-            <ARButton />
+            {/* <ARButton /> */}
             <Canvas camera={{
                 fov: 75, aspect: getNear(), near: 0.1, far: 1100,
                 position: [0, 0, -0.1]
