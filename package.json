@@ -25,5 +25,8 @@
     "threejs-addons": "1.2.13",
     "uuid-by-string": "4.0.0",
     "wouter": "2.8.0-alpha.2"
+  },
+  "devDependencies": {
+    "gsap": "^3.11.4"
   }
 }

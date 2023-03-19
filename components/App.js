@@ -19,8 +19,8 @@ import { Perf } from 'r3f-perf'
 
 export function MainScene() {
     const camera = useThree((state) => state.camera)
-    const [showVideo, setShowVideo] = useState(false)
-    const [showControls, setShowControls] = useState(false)
+    const [showVideo, setShowVideo] = useState(true)
+    const [showControls, setShowControls] = useState(true)
     var cameraRef = useRef(null)
 
     useEffect(() => {
@@ -52,13 +52,15 @@ export function MainScene() {
         {!showVideo && <VideoBox onClick={setShowVideo} />}
 
         {showVideo && <VideoSphere cameraDefault={cameraRef} />}
-        {(showControls === true && showVideo === false) && <ArcballControls minDistance={5} setGizmosVisible={true} enablePan={false}
-            autoRotate={false} autoRotateSpeed={0.15} gizmo={true} />}
+        {/* {(showControls === true && showVideo === false) && <ArcballControls minDistance={5} setGizmosVisible={true} enablePan={false}
+            autoRotate={false} autoRotateSpeed={0.15} gizmo={true} />} */}
         <Controllers />
-        <Html style={{ position: "fixed", top: "24px", right: "24px", width: "100%", height: "100%" }}>
+        {/* <OrbitControls minDistance={5} setGizmosVisible={true} enablePan={false}
+            autoRotate={false} autoRotateSpeed={0.15} gizmo={true} /> */}
+        {/* <Html style={{ position: "fixed", top: "24px", right: "24px", width: "100%", height: "100%" }}>
             <img src={"./close.png"} style={{ width: "48px", }} />
-        </Html>
-        <Perf position="top-left" style={{ transform: 'scale(0.8)' }} />
+        </Html> */}
+        <Perf position="top-left" style={{ transform: 'scale(1.0)' }} />
     </XR>)
 }
 
