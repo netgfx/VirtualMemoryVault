@@ -132,7 +132,7 @@ export const VideoSphere = (props) => {
     return (
         <>
             <mesh ref={ref} onClick={handleClick}>
-                <sphereGeometry />
+                <sphereGeometry needsUpdate={true} />
                 {/* <meshBasicMaterial map={videoTexture} /> */}
                 {/* <colorMaterial key={ColorMaterial.key}
                     uFreq={speed}
@@ -140,7 +140,7 @@ export const VideoSphere = (props) => {
                     uTexture={videoTexture}
                     uNoiseTexture={noiseTexture}
                 /> */}
-                <fadeMaterial key={FadeMaterial.key} u_time={1.0} u_resolution={new THREE.Vector2(window.innerWidth, window.innerHeight)} uTexture={videoTexture} mask_position={0} />
+                <fadeMaterial key={FadeMaterial.key} u_time={1.0} u_resolution={new THREE.Vector2(window.innerWidth, window.innerHeight)} uTexture={videoTexture} mask_position={0} onUpdate={(self) => (self.needsUpdate = true)} />
                 {/* <meshBasicMaterial map={videoTexture} side={BackSide} /> */}
             </mesh>
             {showControls && <OrbitControls ref={orbitRef} makeDefault enablePan={false} maxDistance={3.0} args={[camera, gl.domElement]} />}
