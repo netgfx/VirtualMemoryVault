@@ -125,13 +125,16 @@ export default function App() {
     return (
 
         <>
+
             {/* <ARButton /> */}
             <Canvas camera={{
                 fov: 75, aspect: getNear(), near: 0.1, far: 1100,
                 position: [0, 0, -0.1]
             }} gl={{ devicePixelRatio: getPixelRatio() }}>
                 <color attach="background" args={['#191920']} />
+
                 <MainScene />
+
                 {/* <mesh rotation={[-Math.PI / 2, 0, 0]}>
                     <planeGeometry args={[50, 50]} />
                     <MeshReflectorMaterial
@@ -148,7 +151,9 @@ export default function App() {
                     />
                 </mesh> */}
                 <Environment preset="city" />
+
             </Canvas>
+
         </>
     )
 }
