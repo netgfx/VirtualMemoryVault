@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import App from "../components/App"
 import styles from "../styles/Home.module.css"
 import { Suspense } from 'react'
+import NonSSRWrapper from "../helpers/NoSSR"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Suspense>
-          <App />
+          <NonSSRWrapper>
+            <App />
+          </NonSSRWrapper>
         </Suspense>
       </main>
     </>
