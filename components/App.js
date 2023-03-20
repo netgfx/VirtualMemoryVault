@@ -18,22 +18,22 @@ export function XRContext(props) {
     const camera = useThree((state) => state.camera)
     var cameraRef = useRef(null)
     const [showVideo, setShowVideo] = useState(true)
-    const {
-        // An array of connected `XRController`
-        controllers,
-        // Whether the XR device is presenting in an XR session
-        isPresenting,
-        // Whether hand tracking inputs are active
-        isHandTracking,
-        // A THREE.Group representing the XR viewer or player
-        player,
-        // The active `XRSession`
-        session,
-        // `XRSession` foveation. This can be configured as `foveation` on <XR>. Default is `0`
-        foveation,
-        // `XRSession` reference-space type. This can be configured as `referenceSpace` on <XR>. Default is `local-floor`
-        referenceSpace
-    } = useXR()
+    // const {
+    //     // An array of connected `XRController`
+    //     controllers,
+    //     // Whether the XR device is presenting in an XR session
+    //     isPresenting,
+    //     // Whether hand tracking inputs are active
+    //     isHandTracking,
+    //     // A THREE.Group representing the XR viewer or player
+    //     player,
+    //     // The active `XRSession`
+    //     session,
+    //     // `XRSession` foveation. This can be configured as `foveation` on <XR>. Default is `0`
+    //     foveation,
+    //     // `XRSession` reference-space type. This can be configured as `referenceSpace` on <XR>. Default is `local-floor`
+    //     referenceSpace
+    // } = useXR()
 
     const [showControls, setShowControls] = useState(true)
 
@@ -62,12 +62,13 @@ export function XRContext(props) {
         }
     }
 
-    useEffect(() => {
-        console.log(player, session)
-    }, [session])
+    // useEffect(() => {
+    //     console.log(player, session)
+    // }, [session])
 
 
-    return <group> <ambientLight />
+    return <group>
+        <ambientLight />
         <pointLight position={[10, 10, 10]} />
 
         {!showVideo && <VideoBox onClick={setShowVideo} />}
@@ -75,7 +76,7 @@ export function XRContext(props) {
         {showVideo && <VideoSphere videoSrc={"https://qsxfdqhsuyovskknxkaj.supabase.co/storage/v1/object/public/hosted-images/videos360/chef.mp4?t=2023-03-19T09%3A22%3A22.730Z"} cameraDefault={cameraRef} />}
         {/* {(showControls === true && showVideo === false) && <ArcballControls minDistance={5} setGizmosVisible={true} enablePan={false}
             autoRotate={false} autoRotateSpeed={0.15} gizmo={true} />} */}
-        <Controllers />
+        {/* <Controllers /> */}
         {/* <OrbitControls minDistance={5} setGizmosVisible={true} enablePan={false}
             autoRotate={false} autoRotateSpeed={0.15} gizmo={true} /> */}
         {/* <Html style={{ position: "fixed", top: "24px", right: "24px", width: "100%", height: "100%" }}>
@@ -93,9 +94,9 @@ export function MainScene() {
 
 
     return (
-        <XR referenceSpace="local">
+        <>
             <XRContext />
-        </XR>)
+        </>)
 }
 
 ////////////////////////////////////////////////////////////////////////////
