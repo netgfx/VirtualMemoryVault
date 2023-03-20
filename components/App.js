@@ -88,10 +88,6 @@ export function XRContext(props) {
 
 
 export function MainScene() {
-
-
-
-
     return (
         <>
             <XRContext />

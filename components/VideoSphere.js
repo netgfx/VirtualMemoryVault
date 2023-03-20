@@ -33,25 +33,25 @@ export const VideoSphere = (props) => {
 
         if (!ref.current) return
 
-        var limit = 1.0 - Math.abs(2.0 * fract(5.0 * ref.current.material.uTime) - 1.0);
-        //if (ref.current.material.uTime <= limit) return
-        // @ts-ignore
-        //ref.current.material.uTime += 0.01
+        // var limit = 1.0 - Math.abs(2.0 * fract(5.0 * ref.current.material.uTime) - 1.0);
+        // //if (ref.current.material.uTime <= limit) return
+        // // @ts-ignore
+        // //ref.current.material.uTime += 0.01
 
-        //FADE MATERIAL
+        // //FADE MATERIAL
 
-        if (mask_val.current >= 1.0) { mask_val.current = 1.0; mask_step.current = -0.01; }
-        //else if (mask_val.current <= -0.0) { mask_val.current = 0.0; mask_step.current = 0.01; }
-        //console.log(mask_val.current, mask_step.current)
-        if (mask_val.current >= 1) {
-            if (showControls === false) {
-                setShowControls(true)
-            }
-            return
-        }
-        mask_val.current += mask_step.current;
-        ref.current.material.mask_position = mask_val.current;
-        ref.current.material.u_time += 0.01;
+        // if (mask_val.current >= 1.0) { mask_val.current = 1.0; mask_step.current = -0.01; }
+
+        // if (mask_val.current >= 1) {
+        //     if (showControls === false) {
+        //         setShowControls(true)
+        //     }
+        //     return
+        // }
+        // mask_val.current += mask_step.current;
+        // ref.current.material.mask_position = mask_val.current;
+        // ref.current.material.u_time += 0.01;
+
         ///////////////////////
         //console.log("limit is: ", limit)
         //ref.current.rotation.y = Math.sin(state.clock.elapsedTime) / 4
@@ -129,12 +129,6 @@ export const VideoSphere = (props) => {
 
     const speed = 0.2;
     const border = 0.1;
-
-    useEffect(() => {
-        if (orbitRef.current) {
-
-        }
-    }, [orbitRef])
 
 
     return (
