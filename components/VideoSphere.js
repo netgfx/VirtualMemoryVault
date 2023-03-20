@@ -149,8 +149,8 @@ export const VideoSphere = (props) => {
                     uTexture={videoTexture}
                     uNoiseTexture={noiseTexture}
                 /> */}
-                {/* <fadeMaterial key={FadeMaterial.key} u_time={1.0} u_resolution={new THREE.Vector2(window.innerWidth, window.innerHeight)} uTexture={videoTexture} mask_position={0} onUpdate={(self) => (self.needsUpdate = true)} /> */}
-                <meshBasicMaterial map={videoTexture} side={BackSide} />
+                <fadeMaterial key={FadeMaterial.key} u_time={1.0} u_resolution={new THREE.Vector2(window.innerWidth, window.innerHeight)} uTexture={videoTexture} mask_position={0} onUpdate={(self) => (self.needsUpdate = true)} />
+                {/* <meshBasicMaterial map={videoTexture} side={BackSide} /> */}
             </mesh>
             {showControls && <OrbitControls ref={orbitRef} makeDefault enablePan={false} maxDistance={3.0} args={[camera, gl.domElement]} />}
         </>
