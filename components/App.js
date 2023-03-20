@@ -65,14 +65,14 @@ export function XRContext(props) {
     //     console.log(player, session)
     // }, [session])
 
-
+    //"https://qsxfdqhsuyovskknxkaj.supabase.co/storage/v1/object/public/hosted-images/videos360/chef.mp4?t=2023-03-19T09%3A22%3A22.730Z"
     return <group>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
 
         {!showVideo && <VideoBox onClick={setShowVideo} />}
 
-        {showVideo && <VideoSphere videoSrc={"https://qsxfdqhsuyovskknxkaj.supabase.co/storage/v1/object/public/hosted-images/videos360/chef.mp4?t=2023-03-19T09%3A22%3A22.730Z"} cameraDefault={cameraRef} />}
+        {showVideo && <VideoSphere videoSrc={"/assets/chef.mp4"} cameraDefault={cameraRef} />}
         {/* {(showControls === true && showVideo === false) && <ArcballControls minDistance={5} setGizmosVisible={true} enablePan={false}
             autoRotate={false} autoRotateSpeed={0.15} gizmo={true} />} */}
         {/* <Controllers /> */}
