@@ -5,7 +5,6 @@ import { useEffect, useState, useRef, useMemo, useCallback, useLayoutEffect } fr
 import { Curves, angle } from 'three-addons'
 import * as THREE_ADDONS from 'three-addons'
 import _ from 'lodash'
-import { Interactive, XR, ARButton, Controllers, useXR } from '@react-three/xr'
 import { VideoSphere } from './VideoSphere'
 import { VideoBox } from './VideoBox'
 import { Perf } from 'r3f-perf'

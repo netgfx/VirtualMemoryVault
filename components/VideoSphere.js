@@ -5,7 +5,6 @@ import { useEffect, useState, useRef, useMemo, useCallback, useLayoutEffect } fr
 import { Curves, angle } from 'three-addons'
 import * as THREE_ADDONS from 'three-addons'
 import _ from 'lodash'
-import { Interactive, XR, ARButton, Controllers } from '@react-three/xr'
 import { gsap } from "gsap"
 import { fract } from '../helpers/utils'
 import { DissolveMaterial } from './materials/DissolveMaterial'
