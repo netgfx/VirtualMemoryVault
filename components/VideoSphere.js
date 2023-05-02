@@ -23,7 +23,7 @@ export const VideoSphere = (props) => {
     const ref = useRef()
     const orbitRef = useRef()
     const { size } = useThree()
-    const [showControls, setShowControls] = useState(false)
+    const [showControls, setShowControls] = useState(true)
     const camera = useThree((state) => state.camera)
     var mask_step = useRef(0.01);
     var mask_val = useRef(0.0);
